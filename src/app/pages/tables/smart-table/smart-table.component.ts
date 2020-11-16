@@ -88,7 +88,6 @@ export class SmartTableComponent {
 
   // query data
    queryData(): void{
-
   fetch(
       "https://my.api.mockaroo.com/smarttable.json?key=416e4a40"
     )
@@ -103,9 +102,6 @@ export class SmartTableComponent {
       .catch((err) => {
         console.log(err);
       });
-
-
-
   }
 
 }

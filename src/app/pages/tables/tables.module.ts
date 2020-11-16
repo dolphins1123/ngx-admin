@@ -6,6 +6,7 @@ import { ThemeModule } from '../../@theme/theme.module';
 import { TablesRoutingModule, routedComponents } from './tables-routing.module';
 import { FsIconComponent } from './tree-grid/tree-grid.component';
 
+
 @NgModule({
   imports: [
     NbCardModule,
@@ -19,6 +20,7 @@ import { FsIconComponent } from './tree-grid/tree-grid.component';
   declarations: [
     ...routedComponents,
     FsIconComponent,
+
   ],
 })
 export class TablesModule { }
