@@ -3,3 +3,6 @@
 ## 練習 NGX-ADMIN
 
 Smart Table 改查詢後 fetch https://my.api.mockaroo.com/smarttable.json
+
+ [<img src="https://imgur.com/HBi0w9w.png" alt="smart table" height="240px" />]
+
