@@ -4,7 +4,7 @@ import { NbDialogRef} from '@nebular/theme';
 @Component({
   selector: 'ngx-edit-modal',
   templateUrl: './edit-modal.component.html',
-  styleUrls: ['./edit-modal.component.scss']
+  styleUrls: ['./edit-modal.component.scss'],
 })
 export class EditModalComponent  {
 
@@ -19,7 +19,7 @@ export class EditModalComponent  {
 
   doCreate()
   {
-
+    console.log('do create');
   }
 
 }
