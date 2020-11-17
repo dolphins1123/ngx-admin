@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ServerDataSource } from 'ng2-smart-table';
 import { NbDialogService } from '@nebular/theme';
@@ -13,7 +13,13 @@ import { EditModalComponent } from './edit-modal/edit-modal.component'
   // `,
   styleUrls: ['./crud-table.component.scss'],
 })
-export class CrudTableComponent  {
+export class CrudTableComponent  implements OnInit {
+
+ngOnInit()
+{
+
+}
+
 
   // source: LocalDataSource;
  source: ServerDataSource;
@@ -23,40 +29,83 @@ export class CrudTableComponent  {
 
   settings = {
      selectMode: 'multi', // 多選
-    add: {
-      confirmCreate: true,
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
+    // add: {
+    //   confirmCreate: true,
+    //   addButtonContent: '<i class="nb-plus"></i>',
+    //   createButtonContent: '<i class="nb-checkmark"></i>',
+    //   cancelButtonContent: '<i class="nb-close"></i>',
+    // },
+    actions: {
+
+      add: false,
+      edit: false,
+      delete: true,
+      // custom: [
+      //   { name: 'viewrecord', title: '<i class="fa fa-eye"></i>' },
+      //   { name: 'editrecord', title: '&nbsp;&nbsp;<i class="fa  fa-edit"></i>' },
+      // ],
+      position: 'right',
+      valuePrepareFunction: (cell, row) => {
+          return `
+          <a href="javascript:void(0);"  onclick="dotest()" >test</a>
+          <a title="詳細" href="Your api key or something/${row.Id}"> <i class="fa fa-eye"></i></a>`;
+        },
+
+
+
     },
-    edit: {
-      confirmSave: true,
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
+    // edit: {
+    //   confirmSave: true,
+    //   editButtonContent: '<i class="nb-edit"></i>',
+    //   saveButtonContent: '<i class="nb-checkmark"></i>',
+    //   cancelButtonContent: '<i class="nb-close"></i>',
+    // },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
       confirmDelete: true,
     },
+    noDataMessage: 'No data found',
     columns: {
       id: {
         title: 'ID',
+         filter: false,
       },
-      albumId: {
-        title: 'Album',
+      firstName: {
+        title: 'firstName',
+         filter: false,
       },
-      title: {
-        title: 'Title',
+      lastName: {
+        title: 'lastName',
+         filter: false,
       },
-      url: {
-        title: 'Url',
+      username: {
+        title: 'username',
+         filter: false,
       },
+       email: {
+        title: 'email',
+         filter: false,
+      },
+        age: {
+        title: 'age',
+         filter: false,
+      },
+      // Actions: {
+      //   title: "",
+      //   type: "html",
+      //   valuePrepareFunction: (cell, row) => {
+      //     return `
+      //     <a href="javascript:void(0);"  onclick="dotest()" >test</a>
+      //     <a title="詳細" href="Your api key or something/${row.Id}"> <i class="fa fa-eye"></i></a>`;
+      //   },
+      //   filter: false,
+      // },
+
     },
   };
 
    constructor(private dialogService: NbDialogService , http: HttpClient) {
-    this.source = new ServerDataSource(http, { endPoint: 'https://jsonplaceholder.typicode.com/photos' });
+    this.source = new ServerDataSource(http, { endPoint: 'https://my.api.mockaroo.com/smarttable.json?key=416e4a40' });
    }
 
 
@@ -74,6 +123,7 @@ export class CrudTableComponent  {
   }
 onClick() {
     // It will console all the selected rows
+    // 多選
     console.log(this.selectedRows);
   }
 
@@ -98,9 +148,24 @@ onClick() {
     console.log(event);
   }
 
-onEdit(event) {
+  onEdit(event) {
     console.log("Edit Event In Console")
     console.log(event);
+  }
+
+  queryData()
+  {
+    console.log('queryData')
+  }
+
+  doEdit(editrow) {
+
+    console.log('doedit=',editrow)
+
+  }
+
+  dotest() {
+    alert('test');
   }
 
 
