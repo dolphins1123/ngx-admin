@@ -2,6 +2,16 @@
   <nb-card-header> CRUD Table </nb-card-header>
 
   <nb-card-body>
-    <ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>
+    <button class="btn btn-md btn-info" (click)="openDialog()">新增</button>
+
+    <ng2-smart-table
+      [settings]="settings"
+      [source]="source"
+      allowFiltering="true"
+      allowPaging="true"
+      (deleteConfirm)="onDeleteConfirm($event)"
+      (edit)="onEdit($event)"
+      (userRowSelect)="onRowSelect($event)"
+    ></ng2-smart-table>
   </nb-card-body>
 </nb-card>

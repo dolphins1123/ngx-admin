@@ -5,6 +5,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { ThemeModule } from '../../@theme/theme.module';
 import { TablesRoutingModule, routedComponents } from './tables-routing.module';
 import { FsIconComponent } from './tree-grid/tree-grid.component';
+import { EditModalComponent } from './crud-table/edit-modal/edit-modal.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { FsIconComponent } from './tree-grid/tree-grid.component';
   declarations: [
     ...routedComponents,
     FsIconComponent,
+    EditModalComponent,
 
   ],
 })
