@@ -1,4 +1,4 @@
-import { Component , ngOnInit} from '@angular/core';
+import { Component , OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ServerDataSource } from 'ng2-smart-table';
 import { NbDialogService } from '@nebular/theme';
