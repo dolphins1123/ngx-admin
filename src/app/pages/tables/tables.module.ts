@@ -24,5 +24,6 @@ import { EditModalComponent } from './crud-table/edit-modal/edit-modal.component
     EditModalComponent,
 
   ],
+  
 })
 export class TablesModule { }
